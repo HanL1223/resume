@@ -11,9 +11,8 @@ cover:
 --- 
 ### Github link
 🔗 [Function URL](http://lesterwithhistreasure.de/avoidingscam)
-🖥 [Frontend](https://colab.research.google.com/drive/1Q553uslYW3Ho6P1G46SOEDxOS_VmHXfJ)
+🖥 [Frontend](https://github.com/HanL1223/fit5120_backend_Django)
 💾[Backend](https://github.com/HanL1223/fit5120_backend_Django)
-🧑🏽‍💻 [Code](https://github.com/HanL1223/fit5120_backend_Django)
 ### Credit
 Members of team TP8 for subject FIT5120/22 
 
@@ -30,3 +29,6 @@ To add more content to the result, I also displayed the words that has the highe
 - Agile Management. Here I also exposed to the full agile software development cycle of a product
 - Cloud Computing. In-depth knowledge and hands on experience on both AWS(EC2,Route52,S3) and Azure (Machine Learning Studio,Virtual machines)
 - New Domain knowledge. First time expose to developing a product in a more public domain setting
+
+## Function Code
+```python

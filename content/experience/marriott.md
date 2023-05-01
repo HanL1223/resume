@@ -1,6 +1,6 @@
 ---
 title: "Revenue Intern & Reservations Agent"
-description: "Marriott Melbourne/Sheraton Melbourne"
+description: "Marriott International"
 dateString: August 2018 - November 2018 / June 2019 – January 2020
 draft: false
 tags: []
@@ -13,5 +13,5 @@ weight: 304
 - Maintained close communication with all departments to ensure a smooth arrival experience for guests.
 - Collected requested information and assisted the revenue department to conduct price and marketing analysis.
 - Assisted with integration and system switch for Starwood to Marriott across three large-scale properties.
-- Assisted with general reservations agent's role, including daily arrival check, investigation of open guest accounts, or ad-hoc tasks assigned by the management team.
+- Assisted with general reservations agent's role, including daily arrival check, investigation of open guest accounts and other ad-hoc tasks assigned by the management team.
 - Assisted the revenue manager to monitor demand and provide insight for pricing strategy.
