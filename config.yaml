@@ -1,0 +1,88 @@
+baseURL: https://hanl1223.github.io/resume/
+languageCode: en-us # en-us
+title: Han's Portfolio
+theme: PaperMod # Theme Name from template
+
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 10
+    - identifier: projects
+      name: Projects
+      url: /projects
+      weight: 20
+    - identifier: experience
+      name: Experience
+      url: /experience
+      weight: 30
+    - identifier: search
+      name: Search
+      url: /search
+      weight: 40
+    - identifier: About
+      name: About
+      url: /about
+      weight: 50
+      
+params:
+  # theme
+  showToc: true
+  TocOpen: false
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  hideMeta: false
+
+  # for enchanced SEO
+  env: production
+
+  # Home Page
+  profileMode:
+    enabled: true
+    title: "Han Li"
+    subtitle: Hi, My name is Han, a Master Student in Data Science field, I am passion with using Data to solve real problem and support decision making
+    subtitle2: dasjdlkjasld;jlk
+    imageUrl: "home/Q.jpeg"
+    imageWidth: 220
+    imageHeight: 220
+  # List View
+  hideDescriptionInList: false
+
+  # cover image for posts
+  cover:
+    hiddenInList: false # hide on list pages and home
+    hiddenInSingle: false # hide on single page
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/Arli12"
+    - name: email
+      url: "mailto:Han.li1223@outlook.com"
+    - name: LinkedIn
+      url: 'https://www.linkedin.com/in/han-li-a91b82147/'
+    - name: "cv"
+      url: "home/Resume for Han Li copy.pdf"
+
+  # text search
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+# for search using Fuse.js
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+# allow HTML in MD
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
