@@ -2,15 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://hanl1223.github.io/resume/projects/automated-image-captioning/</loc>
+    <loc>https://hanl1223.github.io/resume/projects/seniordigi/</loc>
   </url><url>
-    <loc>https://hanl1223.github.io/resume/projects/todo-list-app/</loc>
+    <loc>https://hanl1223.github.io/resume/projects/dlapp/</loc>
   </url><url>
     <loc>https://hanl1223.github.io/resume/experience/como/</loc>
   </url><url>
     <loc>https://hanl1223.github.io/resume/experience/pullman/</loc>
-  </url><url>
-    <loc>https://hanl1223.github.io/resume/experience/tumunich/</loc>
   </url><url>
     <loc>https://hanl1223.github.io/resume/experience/marriott/</loc>
   </url><url>
@@ -21,6 +19,8 @@
     <loc>https://hanl1223.github.io/resume/categories/</loc>
   </url><url>
     <loc>https://hanl1223.github.io/resume/tags/css/</loc>
+  </url><url>
+    <loc>https://hanl1223.github.io/resume/tags/django/</loc>
   </url><url>
     <loc>https://hanl1223.github.io/resume/tags/dl/</loc>
   </url><url>
