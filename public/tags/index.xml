@@ -25,20 +25,20 @@
     </item>
     
     <item>
+      <title>Deep Learning</title>
+      <link>https://hanl1223.github.io/resume/tags/deep-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanl1223.github.io/resume/tags/deep-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Django</title>
       <link>https://hanl1223.github.io/resume/tags/django/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hanl1223.github.io/resume/tags/django/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>DL</title>
-      <link>https://hanl1223.github.io/resume/tags/dl/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hanl1223.github.io/resume/tags/dl/</guid>
       <description></description>
     </item>
     
@@ -66,6 +66,15 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hanl1223.github.io/resume/tags/express/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kafka</title>
+      <link>https://hanl1223.github.io/resume/tags/kafka/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanl1223.github.io/resume/tags/kafka/</guid>
       <description></description>
     </item>
     
@@ -133,11 +142,38 @@
     </item>
     
     <item>
+      <title>Sklearn</title>
+      <link>https://hanl1223.github.io/resume/tags/sklearn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanl1223.github.io/resume/tags/sklearn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spark</title>
+      <link>https://hanl1223.github.io/resume/tags/spark/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanl1223.github.io/resume/tags/spark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>TypeScript</title>
       <link>https://hanl1223.github.io/resume/tags/typescript/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hanl1223.github.io/resume/tags/typescript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Xgboost</title>
+      <link>https://hanl1223.github.io/resume/tags/xgboost/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanl1223.github.io/resume/tags/xgboost/</guid>
       <description></description>
     </item>
     

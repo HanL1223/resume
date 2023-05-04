@@ -1,16 +1,16 @@
 ---
-title: "Bridging the Digital Divide (Graduate Project)"
+title: "Bridging the Digital Divide"
 description: "Website project to help the seniors imporving their digital literacy"
 dateString: Feb 2023 - Jun 2023
 draft: false
-tags: ["Python", "PyTorch","BERT", "DL",'Docker','Django']
+tags: ["Python", "PyTorch","BERT", "Deep Learning",'Docker','Django']
 showToc: False
 weight: 201
 cover:
     image: "projects/grad-project/cover.png"
 --- 
 ### Github link
-🔗 [Function URL](http://lesterwithhistreasure.de/avoidingscam)
+🔗 [Function URL](https://lesterwithhistreasure.de/avoidingscam)
 🖥 [Frontend](https://github.com/HanL1223/fit5120_backend_Django)
 💾[Backend](https://github.com/HanL1223/fit5120_backend_Django)
 ### Credit
@@ -30,5 +30,3 @@ To add more content to the result, I also displayed the words that has the highe
 - Cloud Computing. In-depth knowledge and hands on experience on both AWS(EC2,Route52,S3) and Azure (Machine Learning Studio,Virtual machines)
 - New Domain knowledge. First time expose to developing a product in a more public domain setting
 
-## Function Code
-```python
