@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>NYC for hire car Dash Borad | Han&#39;s Portfolio</title>
+<meta name="keywords" content="Python, Data engineering, MAGE">
+<meta name="description" content="A end to end data engineering project">
+<meta name="author" content="">
+<link rel="canonical" href="https://hanl1223.github.io/resume/projects/de/">
+<link crossorigin="anonymous" href="/resume/assets/css/stylesheet.min.a72801f0f40a8d7f71aa1cafd1c2f2a993a1f26ca1cfd38fdba65d5b9b0f08a0.css" integrity="sha256-pygB8PQKjX9xqhyv0cLyqZOh8myhz9OP26ZdW5sPCKA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/resume/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://hanl1223.github.io/resume/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://hanl1223.github.io/resume/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://hanl1223.github.io/resume/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://hanl1223.github.io/resume/apple-touch-icon.png">
+<link rel="mask-icon" href="https://hanl1223.github.io/resume/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="NYC for hire car Dash Borad" />
+<meta property="og:description" content="A end to end data engineering project" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hanl1223.github.io/resume/projects/de/" />
+<meta property="og:image" content="https://hanl1223.github.io/resume/projects/bankloan_prediction/cover.jpg" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://hanl1223.github.io/resume/projects/bankloan_prediction/cover.jpg" />
+<meta name="twitter:title" content="NYC for hire car Dash Borad"/>
+<meta name="twitter:description" content="A end to end data engineering project"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "https://hanl1223.github.io/resume/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "NYC for hire car Dash Borad",
+      "item": "https://hanl1223.github.io/resume/projects/de/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "NYC for hire car Dash Borad",
+  "name": "NYC for hire car Dash Borad",
+  "description": "A end to end data engineering project",
+  "keywords": [
+    "Python", "Data engineering", "MAGE"
+  ],
+  "articleBody": "link 🔗 Dashborad\nCredit The dataset is downloaded fromDATABASEURL\nThe reduced version used in this project is upladed as API form DATAURL\nSkill invlove Python MAGE Data engineering Googld Cloud Platform\nDescription This is a end to end project using a sample data taken from the NYC TLC Trip report invovle using python for initial clearning, using MAGE for construct data pipeline and data visulization using looker studio.\nSTEPS To start, I have downloaded the data and uploaded it as a data in google cloud bucket, it can also be made public so we can download it as an API\nUsing build in template from mage we can apply the following template to extract transform and load the data in to GCP’s BIGQuery\nThen we can perfrom SQL query to shape tables for visulization as needed\nKey Takeaways Hands on experience in data engineering.\nUtilized Python for data cleaning and transformation tasks, ensuring data quality and integrity.\nEnhanced understanding of SQL querying and database management, specifically working with GCP’s BigQuery.\nDeveloped in presenting data and insights through interactive dashboards using Looker Studio.(Further improvement require)\nDATA EXTACTION\nimport io import pandas as pd import requests if 'data_loader' not in globals(): from mage_ai.data_preparation.decorators import data_loader if 'test' not in globals(): from mage_ai.data_preparation.decorators import test @data_loader def load_data_from_api(*args, **kwargs): \"\"\" Template for loading data from API \"\"\" url = 'https://storage.googleapis.com/taxi-bucket1/uber_data.csv' response = requests.get(url) return pd.read_csv(io.StringIO(response.text), sep=',') @test def test_output(output, *args) -\u003e None: \"\"\" Template code for testing the output of the block. \"\"\" assert output is not None, 'The output is undefined' DATA TRANSFORMATION\nHere we use the data loaded via api and perfrom data transformation\nimport pandas as pd if 'transformer' not in globals(): from mage_ai.data_preparation.decorators import transformer if 'test' not in globals(): from mage_ai.data_preparation.decorators import test @transformer def transform(df, *args, **kwargs): \"\"\" Template code for a transformer block. Add more parameters to this function if this block has multiple parent blocks. There should be one parameter for each output variable from each parent block. Args: data: The output from the upstream parent block args: The output from any additional upstream blocks (if applicable) Returns: Anything (e.g. data frame, dictionary, array, int, str, etc.) \"\"\" # Specify your transformation logic here df['tpep_pickup_datetime'] = pd.to_datetime(df['tpep_pickup_datetime']) df['tpep_dropoff_datetime'] = pd.to_datetime(df['tpep_dropoff_datetime']) datetime_dim = df[['tpep_pickup_datetime','tpep_dropoff_datetime']].drop_duplicates().reset_index(drop=True) datetime_dim['pick_hour'] = datetime_dim['tpep_pickup_datetime'].dt.hour datetime_dim['pick_day'] = datetime_dim['tpep_pickup_datetime'].dt.day datetime_dim['pick_month'] = datetime_dim['tpep_pickup_datetime'].dt.month datetime_dim['pick_year'] = datetime_dim['tpep_pickup_datetime'].dt.year datetime_dim['pick_weekday'] = datetime_dim['tpep_pickup_datetime'].dt.weekday datetime_dim['drop_hour'] = datetime_dim['tpep_dropoff_datetime'].dt.hour datetime_dim['drop_day'] = datetime_dim['tpep_dropoff_datetime'].dt.day datetime_dim['drop_month'] = datetime_dim['tpep_dropoff_datetime'].dt.month datetime_dim['drop_year'] = datetime_dim['tpep_dropoff_datetime'].dt.year datetime_dim['drop_weekday'] = datetime_dim['tpep_dropoff_datetime'].dt.weekday datetime_dim['datetime_id'] = datetime_dim.index datetime_dim = datetime_dim[['datetime_id', 'tpep_pickup_datetime', 'pick_hour', 'pick_day', 'pick_month', 'pick_year', 'pick_weekday', 'tpep_dropoff_datetime', 'drop_hour', 'drop_day', 'drop_month', 'drop_year', 'drop_weekday']] passenger_count_dim = df[['passenger_count']].drop_duplicates().reset_index(drop=True) passenger_count_dim['passenger_count_id'] = passenger_count_dim.index passenger_count_dim = passenger_count_dim[['passenger_count_id','passenger_count']] trip_distance_dim = df[['trip_distance']].drop_duplicates().reset_index(drop=True) trip_distance_dim['trip_distance_id'] = trip_distance_dim.index trip_distance_dim = trip_distance_dim[['trip_distance_id','trip_distance']] rate_code_type = { 1:\"Standard rate\", 2:\"JFK\", 3:\"Newark\", 4:\"Nassau or Westchester\", 5:\"Negotiated fare\", 6:\"Group ride\" } rate_code_dim = df[['RatecodeID']].drop_duplicates().reset_index(drop=True) rate_code_dim['rate_code_id'] = rate_code_dim.index rate_code_dim['rate_code_name'] = rate_code_dim['RatecodeID'].map(rate_code_type) rate_code_dim = rate_code_dim[['rate_code_id','RatecodeID','rate_code_name']] pickup_location_dim = df[['pickup_longitude', 'pickup_latitude']].drop_duplicates().reset_index(drop=True) pickup_location_dim['pickup_location_id'] = pickup_location_dim.index pickup_location_dim = pickup_location_dim[['pickup_location_id','pickup_latitude','pickup_longitude']] dropoff_location_dim = df[['dropoff_longitude', 'dropoff_latitude']].drop_duplicates().reset_index(drop=True) dropoff_location_dim['dropoff_location_id'] = dropoff_location_dim.index dropoff_location_dim = dropoff_location_dim[['dropoff_location_id','dropoff_latitude','dropoff_longitude']] payment_type_name = { 1:\"Credit card\", 2:\"Cash\", 3:\"No charge\", 4:\"Dispute\", 5:\"Unknown\", 6:\"Voided trip\" } payment_type_dim = df[['payment_type']].drop_duplicates().reset_index(drop=True) payment_type_dim['payment_type_id'] = payment_type_dim.index payment_type_dim['payment_type_name'] = payment_type_dim['payment_type'].map(payment_type_name) payment_type_dim = payment_type_dim[['payment_type_id','payment_type','payment_type_name']] fact_table = df.merge(passenger_count_dim, on='passenger_count') \\ .merge(trip_distance_dim, on='trip_distance') \\ .merge(rate_code_dim, on='RatecodeID') \\ .merge(pickup_location_dim, on=['pickup_longitude', 'pickup_latitude']) \\ .merge(dropoff_location_dim, on=['dropoff_longitude', 'dropoff_latitude'])\\ .merge(datetime_dim, on=['tpep_pickup_datetime','tpep_dropoff_datetime']) \\ .merge(payment_type_dim, on='payment_type') \\ [['VendorID', 'datetime_id', 'passenger_count_id', 'trip_distance_id', 'rate_code_id', 'store_and_fwd_flag', 'pickup_location_id', 'dropoff_location_id', 'payment_type_id', 'fare_amount', 'extra', 'mta_tax', 'tip_amount', 'tolls_amount', 'improvement_surcharge', 'total_amount']] # Return dictionary like value so we can create 1 table for each combination return {\"datetime_dim\":datetime_dim.to_dict(orient=\"dict\"), \"passenger_count_dim\":passenger_count_dim.to_dict(orient=\"dict\"), \"trip_distance_dim\":trip_distance_dim.to_dict(orient=\"dict\"), \"rate_code_dim\":rate_code_dim.to_dict(orient=\"dict\"), \"pickup_location_dim\":pickup_location_dim.to_dict(orient=\"dict\"), \"dropoff_location_dim\":dropoff_location_dim.to_dict(orient=\"dict\"), \"payment_type_dim\":payment_type_dim.to_dict(orient=\"dict\"), \"fact_table\":fact_table.to_dict(orient=\"dict\")} @test def test_output(output, *args) -\u003e None: \"\"\" Template code for testing the output of the block. \"\"\" assert output is not None, 'The output is undefined' DATALOADER\nfrom mage_ai.data_preparation.repo_manager import get_repo_path from mage_ai.io.bigquery import BigQuery from mage_ai.io.config import ConfigFileLoader from pandas import DataFrame from os import path if 'data_exporter' not in globals(): from mage_ai.data_preparation.decorators import data_exporter @data_exporter def export_data_to_big_query(data, **kwargs) -\u003e None: \"\"\" Template for exporting data to a BigQuery warehouse. Specify your configuration settings in 'io_config.yaml'. Docs: https://docs.mage.ai/design/data-loading#bigquery \"\"\" config_path = path.join(get_repo_path(), 'io_config.yaml') config_profile = 'default' # K,V pair for each K, generate a table of V for key, value in data.items(): table_id = 'portfolio-pipeline.DEpipeline.{}'.format(key) BigQuery.with_config(ConfigFileLoader(config_path, config_profile)).export( DataFrame(value), print(key,value) table_id, if_exists='replace', # Specify resolution policy if table name already exists ) ",
+  "wordCount" : "701",
+  "inLanguage": "en",
+  "image":"https://hanl1223.github.io/resume/projects/bankloan_prediction/cover.jpg","datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hanl1223.github.io/resume/projects/de/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Han's Portfolio",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hanl1223.github.io/resume/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header sticky-header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://hanl1223.github.io/resume/" accesskey="h" title="Han&#39;s Portfolio (Alt + H)">Han&#39;s Portfolio</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://hanl1223.github.io/resume/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hanl1223.github.io/resume/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hanl1223.github.io/resume/experience" title="Experience">
+                    <span>Experience</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hanl1223.github.io/resume/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hanl1223.github.io/resume/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://hanl1223.github.io/resume/">Home</a>&nbsp;»&nbsp;<a href="https://hanl1223.github.io/resume/projects/">Projects</a></div>
+    <h1 class="post-title">
+      NYC for hire car Dash Borad
+    </h1>
+    <div class="post-description">
+      A end to end data engineering project
+    </div>
+    <div class="post-meta">
+
+
+NOV 2022
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://hanl1223.github.io/resume/projects/bankloan_prediction/cover.jpg" alt="">
+        
+</figure>
+  <div class="post-content"><h3 id="link">link<a hidden class="anchor" aria-hidden="true" href="#link">#</a></h3>
+<p>🔗 <a href="https://lookerstudio.google.com/reporting/04c9ac5c-75fd-4232-ad92-576762ddb091">Dashborad</a></p>
+<h3 id="credit">Credit<a hidden class="anchor" aria-hidden="true" href="#credit">#</a></h3>
+<p>The dataset is downloaded from<a href="https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page">DATABASEURL</a></p>
+<p>The reduced version used in this project is upladed as API form <a href="https://storage.googleapis.com/taxi-bucket1/uber_data.csv">DATAURL</a></p>
+<h3 id="skill-invlove">Skill invlove<a hidden class="anchor" aria-hidden="true" href="#skill-invlove">#</a></h3>
+<p><strong>Python</strong>  <strong>MAGE</strong>  <strong>Data engineering</strong>  <strong>Googld Cloud Platform</strong></p>
+<h2 id="description">Description<a hidden class="anchor" aria-hidden="true" href="#description">#</a></h2>
+<p>This is a end to end project using a sample data taken from the NYC TLC Trip report invovle using python for initial clearning, using MAGE for construct data pipeline and data visulization using looker studio.</p>
+<h3 id="steps">STEPS<a hidden class="anchor" aria-hidden="true" href="#steps">#</a></h3>
+<ol>
+<li>
+<p>To start, I have downloaded the data and uploaded it as a data in google cloud bucket, it can also be made public so we can download it as an API</p>
+</li>
+<li>
+<p>Using build in template from <a href="https://www.mage.ai/">mage</a> we can apply the following template to extract transform and load the data in to GCP&rsquo;s BIGQuery</p>
+</li>
+<li>
+<p>Then we can perfrom SQL query to shape tables for visulization as needed</p>
+</li>
+</ol>
+<h2 id="key-takeaways">Key Takeaways<a hidden class="anchor" aria-hidden="true" href="#key-takeaways">#</a></h2>
+<ul>
+<li>
+<p>Hands on experience in data engineering.</p>
+</li>
+<li>
+<p>Utilized Python for data cleaning and transformation tasks, ensuring data quality and integrity.</p>
+</li>
+<li>
+<p>Enhanced understanding of SQL querying and database management, specifically working with GCP&rsquo;s BigQuery.</p>
+</li>
+<li>
+<p>Developed in presenting data and insights through interactive dashboards using Looker Studio.(Further improvement require)</p>
+</li>
+<li>
+<p>DATA EXTACTION</p>
+<pre><code>  import io
+  import pandas as pd
+  import requests
+  if 'data_loader' not in globals():
+      from mage_ai.data_preparation.decorators import data_loader
+  if 'test' not in globals():
+      from mage_ai.data_preparation.decorators import test
+
+
+  @data_loader
+  def load_data_from_api(*args, **kwargs):
+      &quot;&quot;&quot;
+      Template for loading data from API
+      &quot;&quot;&quot;
+      url = 'https://storage.googleapis.com/taxi-bucket1/uber_data.csv'
+      response = requests.get(url)
+
+  return pd.read_csv(io.StringIO(response.text), sep=',')
+
+
+  @test
+  def test_output(output, *args) -&gt; None:
+      &quot;&quot;&quot;
+      Template code for testing the output of the block.
+      &quot;&quot;&quot;
+      assert output is not None, 'The output is undefined'
+</code></pre>
+</li>
+<li>
+<p>DATA TRANSFORMATION</p>
+</li>
+</ul>
+<p>Here we use the data loaded via api and perfrom data transformation</p>
+<pre><code>    import pandas as pd
+    if 'transformer' not in globals():
+        from mage_ai.data_preparation.decorators import transformer
+    if 'test' not in globals():
+        from mage_ai.data_preparation.decorators import test
+
+
+     @transformer
+
+    def transform(df, *args, **kwargs):
+        &quot;&quot;&quot;
+        Template code for a transformer block.
+
+    Add more parameters to this function if this block has multiple parent blocks.
+    There should be one parameter for each output variable from each parent block.
+
+    Args:
+        data: The output from the upstream parent block
+        args: The output from any additional upstream blocks (if applicable)
+
+    Returns:
+        Anything (e.g. data frame, dictionary, array, int, str, etc.)
+    &quot;&quot;&quot;
+    # Specify your transformation logic here
+    df['tpep_pickup_datetime'] = pd.to_datetime(df['tpep_pickup_datetime'])
+    df['tpep_dropoff_datetime'] = pd.to_datetime(df['tpep_dropoff_datetime'])
+
+    datetime_dim = df[['tpep_pickup_datetime','tpep_dropoff_datetime']].drop_duplicates().reset_index(drop=True)
+    datetime_dim['pick_hour'] = datetime_dim['tpep_pickup_datetime'].dt.hour
+    datetime_dim['pick_day'] = datetime_dim['tpep_pickup_datetime'].dt.day
+    datetime_dim['pick_month'] = datetime_dim['tpep_pickup_datetime'].dt.month
+    datetime_dim['pick_year'] = datetime_dim['tpep_pickup_datetime'].dt.year
+    datetime_dim['pick_weekday'] = datetime_dim['tpep_pickup_datetime'].dt.weekday
+
+    datetime_dim['drop_hour'] = datetime_dim['tpep_dropoff_datetime'].dt.hour
+    datetime_dim['drop_day'] = datetime_dim['tpep_dropoff_datetime'].dt.day
+    datetime_dim['drop_month'] = datetime_dim['tpep_dropoff_datetime'].dt.month
+    datetime_dim['drop_year'] = datetime_dim['tpep_dropoff_datetime'].dt.year
+    datetime_dim['drop_weekday'] = datetime_dim['tpep_dropoff_datetime'].dt.weekday
+
+    datetime_dim['datetime_id'] = datetime_dim.index
+    datetime_dim = datetime_dim[['datetime_id', 'tpep_pickup_datetime', 'pick_hour', 'pick_day', 'pick_month', 'pick_year', 'pick_weekday',
+                            'tpep_dropoff_datetime', 'drop_hour', 'drop_day', 'drop_month', 'drop_year', 'drop_weekday']]
+
+    passenger_count_dim = df[['passenger_count']].drop_duplicates().reset_index(drop=True)
+    passenger_count_dim['passenger_count_id'] = passenger_count_dim.index
+    passenger_count_dim = passenger_count_dim[['passenger_count_id','passenger_count']]
+
+    trip_distance_dim = df[['trip_distance']].drop_duplicates().reset_index(drop=True)
+    trip_distance_dim['trip_distance_id'] = trip_distance_dim.index
+    trip_distance_dim = trip_distance_dim[['trip_distance_id','trip_distance']]
+    rate_code_type = {
+        1:&quot;Standard rate&quot;,
+        2:&quot;JFK&quot;,
+        3:&quot;Newark&quot;,
+        4:&quot;Nassau or Westchester&quot;,
+        5:&quot;Negotiated fare&quot;,
+        6:&quot;Group ride&quot;
+    }
+
+    rate_code_dim = df[['RatecodeID']].drop_duplicates().reset_index(drop=True)
+    rate_code_dim['rate_code_id'] = rate_code_dim.index
+    rate_code_dim['rate_code_name'] = rate_code_dim['RatecodeID'].map(rate_code_type)
+    rate_code_dim = rate_code_dim[['rate_code_id','RatecodeID','rate_code_name']]
+
+
+    pickup_location_dim = df[['pickup_longitude', 'pickup_latitude']].drop_duplicates().reset_index(drop=True)
+    pickup_location_dim['pickup_location_id'] = pickup_location_dim.index
+    pickup_location_dim = pickup_location_dim[['pickup_location_id','pickup_latitude','pickup_longitude']] 
+
+
+    dropoff_location_dim = df[['dropoff_longitude', 'dropoff_latitude']].drop_duplicates().reset_index(drop=True)
+    dropoff_location_dim['dropoff_location_id'] = dropoff_location_dim.index
+    dropoff_location_dim = dropoff_location_dim[['dropoff_location_id','dropoff_latitude','dropoff_longitude']]
+
+    payment_type_name = {
+        1:&quot;Credit card&quot;,
+        2:&quot;Cash&quot;,
+        3:&quot;No charge&quot;,
+        4:&quot;Dispute&quot;,
+        5:&quot;Unknown&quot;,
+        6:&quot;Voided trip&quot;
+    }
+    payment_type_dim = df[['payment_type']].drop_duplicates().reset_index(drop=True)
+    payment_type_dim['payment_type_id'] = payment_type_dim.index
+    payment_type_dim['payment_type_name'] = payment_type_dim['payment_type'].map(payment_type_name)
+    payment_type_dim = payment_type_dim[['payment_type_id','payment_type','payment_type_name']]
+
+    fact_table = df.merge(passenger_count_dim, on='passenger_count') \
+            .merge(trip_distance_dim, on='trip_distance') \
+            .merge(rate_code_dim, on='RatecodeID') \
+            .merge(pickup_location_dim, on=['pickup_longitude', 'pickup_latitude']) \
+            .merge(dropoff_location_dim, on=['dropoff_longitude', 'dropoff_latitude'])\
+            .merge(datetime_dim, on=['tpep_pickup_datetime','tpep_dropoff_datetime']) \
+            .merge(payment_type_dim, on='payment_type') \
+            [['VendorID', 'datetime_id', 'passenger_count_id',
+            'trip_distance_id', 'rate_code_id', 'store_and_fwd_flag', 'pickup_location_id', 'dropoff_location_id',
+            'payment_type_id', 'fare_amount', 'extra', 'mta_tax', 'tip_amount', 'tolls_amount',
+            'improvement_surcharge', 'total_amount']]
+    # Return dictionary like value so we can create 1 table for each combination
+    return {&quot;datetime_dim&quot;:datetime_dim.to_dict(orient=&quot;dict&quot;), 
+    &quot;passenger_count_dim&quot;:passenger_count_dim.to_dict(orient=&quot;dict&quot;),
+    &quot;trip_distance_dim&quot;:trip_distance_dim.to_dict(orient=&quot;dict&quot;),
+    &quot;rate_code_dim&quot;:rate_code_dim.to_dict(orient=&quot;dict&quot;),
+    &quot;pickup_location_dim&quot;:pickup_location_dim.to_dict(orient=&quot;dict&quot;),
+    &quot;dropoff_location_dim&quot;:dropoff_location_dim.to_dict(orient=&quot;dict&quot;),
+    &quot;payment_type_dim&quot;:payment_type_dim.to_dict(orient=&quot;dict&quot;),
+    &quot;fact_table&quot;:fact_table.to_dict(orient=&quot;dict&quot;)}
+
+
+@test
+def test_output(output, *args) -&gt; None:
+    &quot;&quot;&quot;
+    Template code for testing the output of the block.
+    &quot;&quot;&quot;
+    assert output is not None, 'The output is undefined'
+</code></pre>
+<ul>
+<li>
+<p>DATALOADER</p>
+<pre><code>  from mage_ai.data_preparation.repo_manager import get_repo_path
+  from mage_ai.io.bigquery import BigQuery
+  from mage_ai.io.config import ConfigFileLoader
+  from pandas import DataFrame
+  from os import path
+
+  if 'data_exporter' not in globals():
+      from mage_ai.data_preparation.decorators import data_exporter
+
+
+  @data_exporter
+
+  def export_data_to_big_query(data, **kwargs) -&gt; None:
+      &quot;&quot;&quot;
+      Template for exporting data to a BigQuery warehouse.
+      Specify your configuration settings in 'io_config.yaml'.
+
+      Docs: https://docs.mage.ai/design/data-loading#bigquery
+
+
+  &quot;&quot;&quot;
+  config_path = path.join(get_repo_path(), 'io_config.yaml')
+  config_profile = 'default'
+  # K,V pair for each K, generate a table of V
+  for key, value in data.items():
+      table_id = 'portfolio-pipeline.DEpipeline.{}'.format(key)
+      BigQuery.with_config(ConfigFileLoader(config_path, config_profile)).export(
+          DataFrame(value),
+          print(key,value)
+          table_id,
+          if_exists='replace',  # Specify resolution policy if table name already exists
+      )</code></pre>
+</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://hanl1223.github.io/resume/tags/python/">Python</a></li>
+      <li><a href="https://hanl1223.github.io/resume/tags/data-engineering/">Data engineering</a></li>
+      <li><a href="https://hanl1223.github.io/resume/tags/mage/">MAGE</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://hanl1223.github.io/resume/">Han&#39;s Portfolio</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

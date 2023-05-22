@@ -25,21 +25,12 @@
     </item>
     
     <item>
-      <title>Todo List App</title>
-      <link>https://hanl1223.github.io/resume/projects/dlapp/</link>
+      <title>NYC for hire car Dash Borad</title>
+      <link>https://hanl1223.github.io/resume/projects/de/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hanl1223.github.io/resume/projects/dlapp/</guid>
-      <description>A Todo list web application built using React</description>
-    </item>
-    
-    <item>
-      <title>KAFKA</title>
-      <link>https://hanl1223.github.io/resume/projects/bankloan_prediction/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hanl1223.github.io/resume/projects/bankloan_prediction/</guid>
-      <description>A Todo list web application built using React</description>
+      <guid>https://hanl1223.github.io/resume/projects/de/</guid>
+      <description>A end to end data engineering project</description>
     </item>
     
   </channel>

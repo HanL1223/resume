@@ -25,6 +25,15 @@
     </item>
     
     <item>
+      <title>Data engineering</title>
+      <link>https://hanl1223.github.io/resume/tags/data-engineering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanl1223.github.io/resume/tags/data-engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Deep Learning</title>
       <link>https://hanl1223.github.io/resume/tags/deep-learning/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -52,15 +61,6 @@
     </item>
     
     <item>
-      <title>Ensemble Learning</title>
-      <link>https://hanl1223.github.io/resume/tags/ensemble-learning/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hanl1223.github.io/resume/tags/ensemble-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Express</title>
       <link>https://hanl1223.github.io/resume/tags/express/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -70,20 +70,11 @@
     </item>
     
     <item>
-      <title>Kafka</title>
-      <link>https://hanl1223.github.io/resume/tags/kafka/</link>
+      <title>MAGE</title>
+      <link>https://hanl1223.github.io/resume/tags/mage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hanl1223.github.io/resume/tags/kafka/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Machine Learning</title>
-      <link>https://hanl1223.github.io/resume/tags/machine-learning/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hanl1223.github.io/resume/tags/machine-learning/</guid>
+      <guid>https://hanl1223.github.io/resume/tags/mage/</guid>
       <description></description>
     </item>
     
@@ -133,29 +124,11 @@
     </item>
     
     <item>
-      <title>ScikitLearn</title>
-      <link>https://hanl1223.github.io/resume/tags/scikitlearn/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hanl1223.github.io/resume/tags/scikitlearn/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Sklearn</title>
       <link>https://hanl1223.github.io/resume/tags/sklearn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hanl1223.github.io/resume/tags/sklearn/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Spark</title>
-      <link>https://hanl1223.github.io/resume/tags/spark/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hanl1223.github.io/resume/tags/spark/</guid>
       <description></description>
     </item>
     
