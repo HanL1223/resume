@@ -42,7 +42,6 @@ params:
     enabled: true
     title: "Han Li"
     subtitle: Hi, My name is Han, a Master Student in Data Science field, I am passion with using Data to solve real problem and support decision making
-    subtitle2: dasjdlkjasld;jlk
     imageUrl: "home/Q.jpeg"
     imageWidth: 220
     imageHeight: 220
@@ -62,7 +61,7 @@ params:
     - name: LinkedIn
       url: 'https://www.linkedin.com/in/han-li-a91b82147/'
     - name: "cv"
-      url: "home/Resume for Han Li copy.pdf"
+      url: "home/Resume for Han Li_IT.pdf"
 
   # text search
   fuseOpts:
