@@ -13,7 +13,7 @@ cover:
 ### link
 🔗 [Dashborad](https://lookerstudio.google.com/reporting/04c9ac5c-75fd-4232-ad92-576762ddb091)
 ### Credit
-The dataset is downloaded from[DATABASEURL](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+The dataset is downloaded from [DATABASEURL](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 The reduced version used in this project is upladed as API form [DATAURL](https://storage.googleapis.com/taxi-bucket1/uber_data.csv)
 ### Skill invlove

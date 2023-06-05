@@ -25,6 +25,15 @@
     </item>
     
     <item>
+      <title>Collaborative Filtering</title>
+      <link>https://hanl1223.github.io/resume/tags/collaborative-filtering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanl1223.github.io/resume/tags/collaborative-filtering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Data engineering</title>
       <link>https://hanl1223.github.io/resume/tags/data-engineering/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -61,6 +70,15 @@
     </item>
     
     <item>
+      <title>Emsemble Machine Learning</title>
+      <link>https://hanl1223.github.io/resume/tags/emsemble-machine-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanl1223.github.io/resume/tags/emsemble-machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Express</title>
       <link>https://hanl1223.github.io/resume/tags/express/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -70,11 +88,29 @@
     </item>
     
     <item>
+      <title>Machine Learning</title>
+      <link>https://hanl1223.github.io/resume/tags/machine-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanl1223.github.io/resume/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>MAGE</title>
       <link>https://hanl1223.github.io/resume/tags/mage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hanl1223.github.io/resume/tags/mage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Math</title>
+      <link>https://hanl1223.github.io/resume/tags/math/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanl1223.github.io/resume/tags/math/</guid>
       <description></description>
     </item>
     
@@ -115,11 +151,20 @@
     </item>
     
     <item>
-      <title>PyTorch</title>
+      <title>Pytorch</title>
       <link>https://hanl1223.github.io/resume/tags/pytorch/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hanl1223.github.io/resume/tags/pytorch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Recommender</title>
+      <link>https://hanl1223.github.io/resume/tags/recommender/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanl1223.github.io/resume/tags/recommender/</guid>
       <description></description>
     </item>
     
@@ -129,6 +174,15 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hanl1223.github.io/resume/tags/sklearn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Transformer</title>
+      <link>https://hanl1223.github.io/resume/tags/transformer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanl1223.github.io/resume/tags/transformer/</guid>
       <description></description>
     </item>
     

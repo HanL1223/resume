@@ -100,8 +100,8 @@
   "keywords": [
     "Python", "Xgboost", "Sklearn"
   ],
-  "articleBody": "Github link 🔗 Function URL 🖥 Code\nCredit Members of team TP8 for subject FIT5120/22\nSkill invlove Python Pandas Machine Learning\nDescription This is an additional function be added to the final project, a password strength evaluator, based on the dataset A and dataset B\nKey Takeaways Combining DS skill to a real project. Experience on merging model develpment with backend(Django) and frontend(React). Agile Management. Here I also exposed to the full agile software development cycle of a product Function Code ",
-  "wordCount" : "81",
+  "articleBody": "Github link 🔗 Function URL 🖥 Code\nCredit Members of team TP8 for subject FIT5120/22\nSkill invlove Python Pandas Machine Learning\nDescription This is an additional function be added to the final project, a password strength evaluator, based on the dataset A and dataset B\nKey Takeaways Combining DS skill to a real project. Experience on merging model develpment with backend(Django) and frontend(React). Agile Management. Here I also exposed to the full agile software development cycle of a product Method to improve the models Where to improve Use full training set to increase accuracy and F1 perfromance, reducee False positive and Falues Negative Different method to preprocess the data Function Code # For Data manipulation import pandas as pd import numpy as np # For Data Visulization import matplotlib.pyplot as plt import seaborn as sns #For Modelling and evaluation from sklearn.model_selection import train_test_split,StratifiedKFold, cross_val_score from xgboost import XGBClassifier import lightgbm as lgb from sklearn.ensemble import RandomForestClassifier,AdaBoostClassifier,BaggingClassifier,StackingClassifier from sklearn import metrics from sklearn.preprocessing import StandardScaler from sklearn.model_selection import GridSearchCV, RandomizedSearchCV from sklearn.neighbors import KNeighborsClassifier as KNN #For text preprocessing from sklearn.feature_extraction.text import TfidfVectorizer #For model parameter saving and loading import pickle # Import dataset df = pd.read_csv('data.csv',on_bad_lines='skip') #ignore badline from dataset df.isna().sum() df.duplicated().sum() #only 1 missing value, and no duplicate found,will drop the bad record directly df.dropna(inplace = True) #Import text data for all the weak passwords from rock you leak df2 = pd.read_csv('rockyou.txt',delimiter='\\t',header = None, names = ['password'],encoding='ISO-8859-1') df2.dropna(inplace = True) df2.drop_duplicates(inplace = True) df2['strength'] = 0 df_full = pd.concat([df,df2],ignore_index=True) # Compute the value counts of the Gender column value_counts = df_full['strength'].value_counts() # Set the number of samples to be drawn from each group n_samples = value_counts.min() # Group the dataframe by Gender and sample n_samples from each group sampled_df = df.groupby('strength').apply(lambda x: x.sample(n=n_samples)).reset_index(drop=True) # Print the sampled dataframe print(sampled_df) X = sampled_df['password'] y = sampled_df['strength'] #tokenize password vectorizer = TfidfVectorizer(analyzer = 'char') X = vectorizer.fit_transform(X) #Save the vectorizer for backend use with open(\"vectorizer2.pkl\", \"wb\") as f: pickle.dump(vectorizer, f) #Data preprocessing def train_val_test_split(X,y,ratio): X_train,X_,y_train,y_ = train_test_split(X,y,test_size=ratio,stratify=y,random_state=1) X_val,X_test,y_val,y_test = train_test_split(X_,y_,test_size=.5,stratify=y_,random_state=1) return X_train,X_val,X_test,y_train,y_val,y_test X_train,X_val,X_test,y_train,y_val,y_test = train_val_test_split(X,y,ratio=.25) #Model Selection with CV models = [] # Empty list to store all the models # Appending models into the list models.append((\"Random forest\", RandomForestClassifier(random_state=1))) models.append((\"Bagging\", BaggingClassifier(random_state=1))) models.append((\"Xgboost\", XGBClassifier(random_state=1, eval_metric=\"logloss\"))) models.append((\"lgbm\", lgb.LGBMClassifier(random_state=1))) models.append(('KNN',KNN())) results = [] # Empty list to store all model's CV scores names = [] # Empty list to store name of the models score = [] # loop through all models to get the mean cross validated score print(\"\\n\" \"Cross-Validation Performance:\" \"\\n\") # Use F1 since for password evaluation I want to ensure to minimal both FP and FN rate for name, model in models: kfold = StratifiedKFold( n_splits=5, shuffle=True, random_state=1 ) # Setting number of splits equal to 5 cv_result = cross_val_score( estimator=model, X=X_train, y=y_train, scoring='f1_macro', cv=kfold ) results.append(cv_result) names.append(name) print(\"{}: {}\".format(name, cv_result.mean())) #Form CV result, XGBoost generate around 98.4% marco f1 score #Using Xgboost provided the best f1_marco result, thus we can fine tune it # defining model - XGBoost Hyperparameter Tuning model = XGBClassifier(random_state=1, eval_metric=\"logloss\") # Parameter grid to pass in RandomizedSearchCV param_grid = { \"n_estimators\": np.arange(150, 300, 50), \"learning_rate\": [0.0001,0.001,0.01,0.0015], \"gamma\": [0, 3, 5,7], \"subsample\": [0.5, 0.9,0.2,0.35], 'reg_alpha':[0,1], 'reg_lambda':[0,1] } # Calling RandomizedSearchCV randomized_cv = RandomizedSearchCV( estimator=model, param_distributions=param_grid, n_iter=20, # sample 20 setting scoring='f1_macro', cv=3, random_state=1, n_jobs=-1, ) # Fitting parameters in RandomizedSearchCV randomized_cv.fit(X_train, y_train) print( \"Best parameters are {} with CV score={}:\".format( randomized_cv.best_params_, randomized_cv.best_score_ ) ) best_model = XGBClassifier( **randomized_cv.best_params_,eval_metric = 'logloss',random_state = 1 )# building model with best parameters print(\"\\n\" \"Training Performance:\" \"\\n\") best_model.fit(X_train, y_train) scores = metrics.f1_score(y_train, best_model.predict(X_train),average='macro') print(\" {}\".format( scores)) print(\"\\n\" \"Validation Performance:\" \"\\n\") val_scores = metrics.f1_score(y_val, best_model.predict(X_val),average='macro') print(\"{}\".format(val_scores)) # We can go ahead test the model if both training and validation performance are as expected y_pred = best_model.predict(X_test) metrics.f1_score(y_test,y_pred,average='macro') import pickle # Save the model into the pickle file for backend with open(\"xgb_model.pkl\", \"rb\") as f: pickle.dump(best_model,f) ",
+  "wordCount" : "643",
   "inLanguage": "en",
   "image":"https://hanl1223.github.io/resume/projects/grad-project/cover2.jpeg","datePublished": "0001-01-01T00:00:00Z",
   "dateModified": "0001-01-01T00:00:00Z",
@@ -223,9 +223,175 @@ Jun 2023
 <ul>
 <li>Combining DS skill to a real project. Experience on merging model develpment with backend(Django) and frontend(React).</li>
 <li>Agile Management. Here I also exposed to the full agile software development cycle of a product</li>
+<li>Method to improve the models</li>
+</ul>
+<h2 id="where-to-improve">Where to improve<a hidden class="anchor" aria-hidden="true" href="#where-to-improve">#</a></h2>
+<ul>
+<li>Use full training set to increase accuracy and F1 perfromance, reducee False positive and Falues Negative</li>
+<li>Different method to preprocess the data</li>
 </ul>
 <h2 id="function-code">Function Code<a hidden class="anchor" aria-hidden="true" href="#function-code">#</a></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># For Data manipulation</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># For Data Visulization</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#For Modelling and evaluation</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split,StratifiedKFold, cross_val_score
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> xgboost <span style="color:#f92672">import</span> XGBClassifier
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> lightgbm <span style="color:#66d9ef">as</span> lgb
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.ensemble <span style="color:#f92672">import</span> RandomForestClassifier,AdaBoostClassifier,BaggingClassifier,StackingClassifier
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> metrics
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> StandardScaler
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> GridSearchCV, RandomizedSearchCV
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.neighbors <span style="color:#f92672">import</span> KNeighborsClassifier <span style="color:#66d9ef">as</span> KNN  
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#For text preprocessing</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.feature_extraction.text <span style="color:#f92672">import</span> TfidfVectorizer
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#For model parameter saving and loading</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pickle
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Import dataset</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;data.csv&#39;</span>,on_bad_lines<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;skip&#39;</span>) <span style="color:#75715e">#ignore badline from dataset</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>isna()<span style="color:#f92672">.</span>sum()
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>duplicated()<span style="color:#f92672">.</span>sum()
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#only 1 missing value, and no duplicate found,will drop the bad record directly</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>dropna(inplace <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Import text data for all the weak passwords from rock you leak</span>
+</span></span><span style="display:flex;"><span>df2 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;rockyou.txt&#39;</span>,delimiter<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#39;</span>,header <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>, names <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;password&#39;</span>],encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ISO-8859-1&#39;</span>)
+</span></span><span style="display:flex;"><span>df2<span style="color:#f92672">.</span>dropna(inplace <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>df2<span style="color:#f92672">.</span>drop_duplicates(inplace <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>df2[<span style="color:#e6db74">&#39;strength&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df_full <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat([df,df2],ignore_index<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Compute the value counts of the Gender column</span>
+</span></span><span style="display:flex;"><span>value_counts <span style="color:#f92672">=</span> df_full[<span style="color:#e6db74">&#39;strength&#39;</span>]<span style="color:#f92672">.</span>value_counts()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set the number of samples to be drawn from each group</span>
+</span></span><span style="display:flex;"><span>n_samples <span style="color:#f92672">=</span> value_counts<span style="color:#f92672">.</span>min()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Group the dataframe by Gender and sample n_samples from each group</span>
+</span></span><span style="display:flex;"><span>sampled_df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;strength&#39;</span>)<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x<span style="color:#f92672">.</span>sample(n<span style="color:#f92672">=</span>n_samples))<span style="color:#f92672">.</span>reset_index(drop<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Print the sampled dataframe</span>
+</span></span><span style="display:flex;"><span>print(sampled_df)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sampled_df[<span style="color:#e6db74">&#39;password&#39;</span>]
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> sampled_df[<span style="color:#e6db74">&#39;strength&#39;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#tokenize password</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>vectorizer <span style="color:#f92672">=</span> TfidfVectorizer(analyzer <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;char&#39;</span>)
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> vectorizer<span style="color:#f92672">.</span>fit_transform(X)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Save the vectorizer for backend use</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;vectorizer2.pkl&#34;</span>, <span style="color:#e6db74">&#34;wb&#34;</span>) <span style="color:#66d9ef">as</span> f:
+</span></span><span style="display:flex;"><span>    pickle<span style="color:#f92672">.</span>dump(vectorizer, f)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#Data preprocessing</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">train_val_test_split</span>(X,y,ratio):
+</span></span><span style="display:flex;"><span>    X_train,X_,y_train,y_ <span style="color:#f92672">=</span> train_test_split(X,y,test_size<span style="color:#f92672">=</span>ratio,stratify<span style="color:#f92672">=</span>y,random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    X_val,X_test,y_val,y_test <span style="color:#f92672">=</span> train_test_split(X_,y_,test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">.5</span>,stratify<span style="color:#f92672">=</span>y_,random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> X_train,X_val,X_test,y_train,y_val,y_test
+</span></span><span style="display:flex;"><span>X_train,X_val,X_test,y_train,y_val,y_test <span style="color:#f92672">=</span> train_val_test_split(X,y,ratio<span style="color:#f92672">=</span><span style="color:#ae81ff">.25</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Model Selection with CV</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>models <span style="color:#f92672">=</span> []  <span style="color:#75715e"># Empty list to store all the models</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Appending models into the list</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>models<span style="color:#f92672">.</span>append((<span style="color:#e6db74">&#34;Random forest&#34;</span>, RandomForestClassifier(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
+</span></span><span style="display:flex;"><span>models<span style="color:#f92672">.</span>append((<span style="color:#e6db74">&#34;Bagging&#34;</span>, BaggingClassifier(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
+</span></span><span style="display:flex;"><span>models<span style="color:#f92672">.</span>append((<span style="color:#e6db74">&#34;Xgboost&#34;</span>, XGBClassifier(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, eval_metric<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logloss&#34;</span>)))
+</span></span><span style="display:flex;"><span>models<span style="color:#f92672">.</span>append((<span style="color:#e6db74">&#34;lgbm&#34;</span>, lgb<span style="color:#f92672">.</span>LGBMClassifier(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
+</span></span><span style="display:flex;"><span>models<span style="color:#f92672">.</span>append((<span style="color:#e6db74">&#39;KNN&#39;</span>,KNN()))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>results <span style="color:#f92672">=</span> []  <span style="color:#75715e"># Empty list to store all model&#39;s CV scores</span>
+</span></span><span style="display:flex;"><span>names <span style="color:#f92672">=</span> []  <span style="color:#75715e"># Empty list to store name of the models</span>
+</span></span><span style="display:flex;"><span>score <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># loop through all models to get the mean cross validated score</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;Cross-Validation Performance:&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Use F1 since for password evaluation I want to ensure to minimal both FP and FN rate</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> name, model <span style="color:#f92672">in</span> models:
+</span></span><span style="display:flex;"><span>    kfold <span style="color:#f92672">=</span> StratifiedKFold(
+</span></span><span style="display:flex;"><span>        n_splits<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, shuffle<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    )  <span style="color:#75715e"># Setting number of splits equal to 5</span>
+</span></span><span style="display:flex;"><span>    cv_result <span style="color:#f92672">=</span> cross_val_score(
+</span></span><span style="display:flex;"><span>        estimator<span style="color:#f92672">=</span>model, X<span style="color:#f92672">=</span>X_train, y<span style="color:#f92672">=</span>y_train, scoring<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;f1_macro&#39;</span>, cv<span style="color:#f92672">=</span>kfold
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    results<span style="color:#f92672">.</span>append(cv_result)
+</span></span><span style="display:flex;"><span>    names<span style="color:#f92672">.</span>append(name)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(name, cv_result<span style="color:#f92672">.</span>mean()))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Form CV result, XGBoost generate around 98.4% marco f1 score</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Using Xgboost provided the best f1_marco result, thus we can fine tune it</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># defining model - XGBoost Hyperparameter Tuning</span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> XGBClassifier(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, eval_metric<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logloss&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Parameter grid to pass in RandomizedSearchCV</span>
+</span></span><span style="display:flex;"><span>param_grid <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;n_estimators&#34;</span>: np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">150</span>, <span style="color:#ae81ff">300</span>, <span style="color:#ae81ff">50</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;learning_rate&#34;</span>: [<span style="color:#ae81ff">0.0001</span>,<span style="color:#ae81ff">0.001</span>,<span style="color:#ae81ff">0.01</span>,<span style="color:#ae81ff">0.0015</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;gamma&#34;</span>: [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">7</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;subsample&#34;</span>: [<span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.9</span>,<span style="color:#ae81ff">0.2</span>,<span style="color:#ae81ff">0.35</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;reg_alpha&#39;</span>:[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;reg_lambda&#39;</span>:[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Calling RandomizedSearchCV</span>
+</span></span><span style="display:flex;"><span>randomized_cv <span style="color:#f92672">=</span> RandomizedSearchCV(
+</span></span><span style="display:flex;"><span>    estimator<span style="color:#f92672">=</span>model,
+</span></span><span style="display:flex;"><span>    param_distributions<span style="color:#f92672">=</span>param_grid,
+</span></span><span style="display:flex;"><span>    n_iter<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>,  <span style="color:#75715e"># sample 20 setting</span>
+</span></span><span style="display:flex;"><span>    scoring<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;f1_macro&#39;</span>,
+</span></span><span style="display:flex;"><span>    cv<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>    random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    n_jobs<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Fitting parameters in RandomizedSearchCV</span>
+</span></span><span style="display:flex;"><span>randomized_cv<span style="color:#f92672">.</span>fit(X_train, y_train)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Best parameters are </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> with CV score=</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">:&#34;</span><span style="color:#f92672">.</span>format(
+</span></span><span style="display:flex;"><span>        randomized_cv<span style="color:#f92672">.</span>best_params_, randomized_cv<span style="color:#f92672">.</span>best_score_
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>best_model <span style="color:#f92672">=</span> XGBClassifier(
+</span></span><span style="display:flex;"><span><span style="color:#f92672">**</span>randomized_cv<span style="color:#f92672">.</span>best_params_,eval_metric <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;logloss&#39;</span>,random_state <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>)<span style="color:#75715e"># building model with best parameters</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;Training Performance:&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>best_model<span style="color:#f92672">.</span>fit(X_train, y_train)
+</span></span><span style="display:flex;"><span>scores <span style="color:#f92672">=</span> metrics<span style="color:#f92672">.</span>f1_score(y_train, best_model<span style="color:#f92672">.</span>predict(X_train),average<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;macro&#39;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34; </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format( scores))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;Validation Performance:&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>val_scores <span style="color:#f92672">=</span> metrics<span style="color:#f92672">.</span>f1_score(y_val, best_model<span style="color:#f92672">.</span>predict(X_val),average<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;macro&#39;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(val_scores))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># We can go ahead test the model if both training and validation performance are as expected</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>y_pred <span style="color:#f92672">=</span> best_model<span style="color:#f92672">.</span>predict(X_test)
+</span></span><span style="display:flex;"><span>metrics<span style="color:#f92672">.</span>f1_score(y_test,y_pred,average<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;macro&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pickle
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Save the model into the pickle file for backend</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;xgb_model.pkl&#34;</span>, <span style="color:#e6db74">&#34;rb&#34;</span>) <span style="color:#66d9ef">as</span> f:
+</span></span><span style="display:flex;"><span>    pickle<span style="color:#f92672">.</span>dump(best_model,f)
+</span></span></code></pre></div>
 
   </div>
 
