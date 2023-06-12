@@ -1,6 +1,6 @@
 ---
 title: "Search"
-layout: "search"
+layout: "Search"
 url: "/search"
 placeholder: "Search within my site"
 summary: "search"
