@@ -1,6 +1,6 @@
 baseURL: https://hanl1223.github.io/resume/
 languageCode: en-us # en-us
-title: Han's Portfolio
+title: Aaron's Portfolio
 theme: PaperMod # Theme Name from template
 
 menu:
@@ -40,7 +40,7 @@ params:
   # Home Page
   profileMode:
     enabled: true
-    title: "Han Li"
+    title: " "
     subtitle: Data specialist with 3+ years of commercial experience in revenue management, strategy and pricing and a master's degree in Data Science from Monash University. 
     imageUrl: "home/Q.jpeg"
     imageWidth: 220
@@ -57,11 +57,11 @@ params:
     - name: github
       url: "https://github.com/Arli12"
     - name: email
-      url: "mailto:Han.li1223@outlook.com"
+      url: "mailto:han.l23@hotmail.com"
     - name: LinkedIn
       url: 'https://www.linkedin.com/in/hanli12/'
     - name: "cv"
-      url: "home/Resume for Han Li_IT.pdf"
+      url: "home/Resume for Aaron Li_IT.pdf"
 
   # text search
   fuseOpts:
