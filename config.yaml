@@ -41,7 +41,7 @@ params:
   profileMode:
     enabled: true
     title: "Han Li"
-    subtitle: Hi, My name is Han, a Master Student in Data Science field, I am passion with using Data to solve real problem and support decision making
+    subtitle: Data specialist with 3+ years of commercial experience in revenue management, strategy and pricing and a master's degree in Data Science from Monash University. 
     imageUrl: "home/Q.jpeg"
     imageWidth: 220
     imageHeight: 220
@@ -59,7 +59,7 @@ params:
     - name: email
       url: "mailto:Han.li1223@outlook.com"
     - name: LinkedIn
-      url: 'https://www.linkedin.com/in/han-li-a91b82147/'
+      url: 'https://www.linkedin.com/in/hanli12/'
     - name: "cv"
       url: "home/Resume for Han Li_IT.pdf"
 
