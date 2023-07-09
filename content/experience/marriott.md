@@ -5,7 +5,7 @@ dateString: August 2018 - November 2018 / June 2019 – January 2020
 draft: false
 tags: []
 showToc: false
-weight: 304
+weight: 303
 --- 
 ### Description
 - Processed reservations and related inquiries from multiple channels.

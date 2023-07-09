@@ -3,9 +3,9 @@ title: "Inbound Reservation Sales Agent"
 description: "Pullman & Mercure Melbourne Albert Park"
 dateString: Jan 2020 - Feb 2021
 draft: false
-tags: ["TypeScript", "NodeJS", "Express", "MongoDB", "AWS", "OAuth2.0"]
+tags: 
 showToc: false
-weight: 302
+weight: 304
 --- 
 
 ### Description

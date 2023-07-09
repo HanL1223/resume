@@ -1,15 +1,19 @@
 ---
-title: "Guest Service Agent/ Duty Manager/ Reservation Supervisor(secondment)"
+title: "Duty Manager & Reservation Supervisor"
 description: "The Como Melbourne - MGallery"
 dateString: Feb 2021 - Jan 2023
 draft: false
 tags: []
 showToc: false
-weight: 301
+weight: 302
 --- 
 
 ### Description
 
- - Collaborated with all departments to ensure a seamless arrival experience for guests and groups. Successfully resolved over 90% of customer complaints within 24 hours and maintained an overall satisfaction score of 90/100.
- - Worked with director of sales and revenue to provide demand insight and assist in creating monthly forecasts.
- - Adjusted inventory to reflect daily demand and to optimise revenue.
+- Managed operations for a 111-room hotel, effectively coordinated and supervised the daily operation, ensuring a seamless guest experience and efficient service delivery.
+- Analysed booking patterns and implemented revenue optimization strategies based on demand trends.
+- Implemented revenue optimization strategies by dynamically adjusting inventory based on daily demand trends, leading to improved revenue performance. Supporting monthly budget forecast.
+- Collaborated with the sales and marketing team to identify opportunities for targeted promotions
+and packages.
+     
+- Conducted regular performance analysis of the reservation system, identifying areas for improvement, and implementing process enhancements.
