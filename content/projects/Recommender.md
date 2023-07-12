@@ -12,7 +12,7 @@ cover:
 ### Github link
 🔗 [Code](https://github.com/HanL1223/novel_recommender)
 ### Credit
-The notebook is inspire by [Paper ](https://arxiv.org/pdf/2008.01192.pdf)
+This notebook is inspire by [Paper ](https://arxiv.org/pdf/2008.01192.pdf)
 ### Skill invlove
 
 **Python**  **Collaborative Filtering**  **Data preprocessing**  **ScikitLearn** 
