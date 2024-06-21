@@ -16,5 +16,4 @@ cover:
 **Python**  **Pytorch**  **Deep Learning**
 
 ## Description
-PLACEHOLDER
 
